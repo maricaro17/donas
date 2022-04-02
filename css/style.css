@@ -1,22 +1,38 @@
 :root {
     --num-tabs: 0; /* Lo modificaremos con JS */
 }
+header{
+    min-height: 10vh;
+}
+main{
+    min-height: 80vh;
+}
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 .bg-donas{
     background-color: #cf1d75;
 }
 
 .tabs {
     position: relative;
-    width: 640px; /* También puede ser un porcentaje como 100% */
+    width: 640px; 
+    margin: auto;
 }
 
 .tabs-list {
     display: inline-block;
-    width: 100%;
+    width: 640px;
+    padding: 0;
+    
+    
 }
 
 .tab-item {
     align-items: center;
+    font-size: 16pt;
+    color: #cf1d75;
     cursor: pointer;
     display: flex;
     float: left;
@@ -27,14 +43,19 @@
 }
 
 .tab-item:hover {
-    background-color: rgba(238, 110, 115, 0.2);
+    background-color: #ee6e7333;
 }
 
 .highlighter {
-    background-color: #EE6E73;
+    background-color: #cf1d75;
     bottom: 0;
     height: 4px;
     position: absolute;
     transition: transform 0.2s ease-out;
     width: calc(100% / var(--num-tabs));
+}
+footer{
+   min-height: 10vh;
+   padding: 10px;
+    
 }
