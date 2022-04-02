@@ -1,3 +1,40 @@
-bg-donas{
+:root {
+    --num-tabs: 0; /* Lo modificaremos con JS */
+}
+.bg-donas{
     background-color: #cf1d75;
+}
+
+.tabs {
+    position: relative;
+    width: 640px; /* También puede ser un porcentaje como 100% */
+}
+
+.tabs-list {
+    display: inline-block;
+    width: 100%;
+}
+
+.tab-item {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    float: left;
+    height: 60px;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+    width: calc(100% / var(--num-tabs));
+}
+
+.tab-item:hover {
+    background-color: rgba(238, 110, 115, 0.2);
+}
+
+.highlighter {
+    background-color: #EE6E73;
+    bottom: 0;
+    height: 4px;
+    position: absolute;
+    transition: transform 0.2s ease-out;
+    width: calc(100% / var(--num-tabs));
 }
