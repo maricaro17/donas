@@ -14,3 +14,4 @@ tabContainer.addEventListener('click', e => {
       tabHighlighter.style.transform = `translateX(${(tabsWidth / tabs.length) * item }px)`;
   }
 });
+
