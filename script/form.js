@@ -1,40 +1,61 @@
-let btnGuardar = document.getElementById('btnGuardar');
-let btnEditar = document.getElementById('btnEditar');
-let btnEliminar = document.getElementById('btnEliminar');
-
-let formulario = document.getElementById('formulario');
-const url= 'https://donasweetfactory.herokuapp.com/donas'
-
-
-formulario.addEventListener('submit', async (e)=>{
+import { fileUpload } from "./fileUpload.js";
+let formulario = document.getElementById("formulario");
+const url = "https://donasweetfactory.herokuapp.com/donas";
+const imageUrl = document.getElementById("imageUrl");
+const body = {};
+const changeFile = (e) => {
+  e.preventDefault();
+  const file = e.target.files[0];
+  fileUpload(file)
+    .then((response) => {
+      Object.assign(body, { imageUrl: response });
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+imageUrl.addEventListener("change", (e) => changeFile(e));
+formulario.addEventListener(
+  "submit",
+  async (e) => {
     e.preventDefault();
-    let name = document.getElementById('name').value;
-    let price = document.getElementById('price').value;
-    let image = document.getElementById('image').value;
-    let category = document.getElementById('category').value;
+    const name = document.getElementById("name").value;
+    const price = document.getElementById("price").value;
+    const category = document.getElementById("category").value;
+    const description = document.getElementById("description").value;
 
-     let resp = await fetch(url, { 
-        method: 'POST',
+    if (formulario.checkValidity()) {
+      e.preventDefault();
+      let resp = await fetch(url, {
+        method: "POST",
         body: JSON.stringify({
-            nombre: name,
-            precio: price,
-            imagenUrl: image,
-            category: category
-
+          name,
+          price,
+          category,
+          description,
+          ...body,
         }),
         headers: {
-            "Content-Type": "application/json; charset=utf-8"
-        } 
-    })
-    let data = await resp.json()
-    console.log(data)
-    
-   
-})
+          "Content-Type": "application/json; charset=utf-8",
+        },
+      });
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Registro exitoso',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      formulario.reset();
+    } else {
+      e.preventDefault();
+      formulario.classList.add("was-validated");
+    }
+  },
+  false
+);
 
-
-
-btnEditar.addEventListener('click', async ()=>{
+/* btnEditar.addEventListener('click', async ()=>{
     let nameM = document.getElementById('name').value;
     let precioM = document.getElementById('price').value;
     let imageM = document.getElementById('image').value;
@@ -57,12 +78,9 @@ btnEditar.addEventListener('click', async ()=>{
     let data = await resp.json()
     console.log(data)
     
-})
+}) */
 
-
-
-
-btnEliminar.addEventListener('click', async() =>{
+/* btnEliminar.addEventListener('click', async() =>{
     let idEliminar = document.getElementById('id').value
 
     let resp = await fetch(url+idEliminar, {
@@ -71,4 +89,4 @@ btnEliminar.addEventListener('click', async() =>{
     let data = await resp.json()
     console.log(data)
 
-})
+}) */
