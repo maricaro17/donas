@@ -30,7 +30,7 @@
 
     </header>
   </div>
-  
+
   <main>
 
     <div class="row usuario container m-auto w-50">
@@ -42,7 +42,7 @@
             <label for="validationCustom01" class="form-label">Nombre del Producto:</label>
             <input type="text" class="form-control" id="name" name="name" required>
             <div class="invalid-feedback">
-             Ingrese nombre del producto
+              Ingrese nombre del producto
             </div>
           </div>
           <div class="d-flex flex-column mt-2">
@@ -59,20 +59,20 @@
               Ingrese Imagen
             </div>
           </div>
-      
+
           <div class="d-flex flex-column mt-2">
             <label for="validationCustom04" class="form-label">Categoria:</label>
             <select class="form-select" id="category" name="category" required>
               <option selected disabled value="">Seleccione...</option>
-              <option>Crema Pastelera</option>
-              <option>Nutella</option>
-              <option>Arequipe</option>
-              
+              <option value="cream">Crema Pastelera</option>
+              <option value="nutela">Nutella</option>
+              <option value="arequipe">Arequipe</option>
+
             </select>
             <div class="invalid-feedback">
               Elija una Categoria
             </div>
-          </div><br>
+          </div>
 
           <div class="d-flex flex-column">
             <label for="validationCustom01" class="form-label">Descripcion:</label>
@@ -82,20 +82,18 @@
               Ingrese descripcion
             </div>
           </div>
-         
+          <div class="d-flex">
+            <button id="btnGuardar" type="submit" class="btn btn-dona text-white w-100 mt-2 mb-2">Guardar</button>
           </div>
-
-            <div class="d-flex">
-              <button id="btnGuardar" type="submit" class="btn btn-dona text-white w-100 mt-2 mb-2">Guardar</button>
-              </div>
-            </form>
-        </div>
+        </form>
+      </div>
+    </div>
 
   </main>
   <script src="/script/form.js" type="module"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-  crossorigin="anonymous"></script>  
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <footer class="bg-donas text-white text-center">
     <h3>
